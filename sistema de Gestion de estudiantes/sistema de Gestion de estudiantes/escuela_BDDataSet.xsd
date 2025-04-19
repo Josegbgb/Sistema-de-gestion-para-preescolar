@@ -1,0 +1,1185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="escuela_BDDataSet" targetNamespace="http://tempuri.org/escuela_BDDataSet.xsd" xmlns:mstns="http://tempuri.org/escuela_BDDataSet.xsd" xmlns="http://tempuri.org/escuela_BDDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="escuela_BDConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="escuela_BDConnectionString (MySettings)" PropertyReference="ApplicationSettings.WindowsApplication1.My.MySettings.GlobalReference.Default.escuela_BDConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EstudiantesTableAdapter" GeneratorDataComponentClassName="EstudiantesTableAdapter" Name="Estudiantes" UserDataComponentName="EstudiantesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        e.Id, e.nombre, e.apellido, e.grado_id, e.representante_id, g.grado, g.seccion, r.nombre AS Expr1, r.apellido AS Expr2, r.cedula, r.telefono, IIF(ISNULL(g.grado), 'Sin asignar', g.grado) AS Grado, IIF(ISNULL(g.seccion), 'Sin asignar', g.seccion) 
+                         AS Seccion, IIF(ISNULL(r.nombre), 'Sin asignar', r.nombre) AS NombreRepresentante, IIF(ISNULL(r.apellido), 'Sin asignar', r.apellido) AS ApellidoRepresentante, IIF(ISNULL(r.telefono), 'Sin asignar', r.telefono) 
+                         AS TelefonoRepresentante, r.Id AS Expr3
+FROM            ((Estudiantes e LEFT OUTER JOIN
+                         Grados g ON e.grado_id = g.Id) LEFT OUTER JOIN
+                         Representantes r ON e.representante_id = r.Id)
+
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
+              <Mapping SourceColumn="Grado" DataSetColumn="Grado" />
+              <Mapping SourceColumn="Seccion" DataSetColumn="Seccion" />
+              <Mapping SourceColumn="NombreRepresentante" DataSetColumn="NombreRepresentante" />
+              <Mapping SourceColumn="ApellidoRepresentante" DataSetColumn="ApellidoRepresentante" />
+              <Mapping SourceColumn="TelefonoRepresentante" DataSetColumn="TelefonoRepresentante" />
+              <Mapping SourceColumn="grado_id" DataSetColumn="grado_id" />
+              <Mapping SourceColumn="g.Grado" DataSetColumn="g_Grado" />
+              <Mapping SourceColumn="g.Seccion" DataSetColumn="g_Seccion" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="cedula" DataSetColumn="cedula" />
+              <Mapping SourceColumn="telefono" DataSetColumn="telefono" />
+              <Mapping SourceColumn="Expr3" DataSetColumn="Expr3" />
+              <Mapping SourceColumn="representante_id" DataSetColumn="representante_id" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="asignarNuevoGrado" Modifier="Public" Name="asignarNuevoGrado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="asignarNuevoGrado">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Estudiantes
+SET                grado_id = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="grado_id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="grado_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eliminarEstudiante" Modifier="Public" Name="eliminarEstudiante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="eliminarEstudiante">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM Estudiantes
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="Id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eliminarGrado" Modifier="Public" Name="eliminarGrado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="eliminarGrado">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Estudiantes
+SET                grado_id = NULL
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="Id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="Estudiantes" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetEstudiantesSinGrado" GetMethodModifier="Public" GetMethodName="GetEstudiantesSinGrado" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetEstudiantesSinGrado" UserSourceName="GetEstudiantesSinGrado">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, nombre, apellido, grado_id, representante_id
+FROM            Estudiantes
+WHERE        (grado_id IS NULL)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="insertarEstudiante" Modifier="Public" Name="insertarEstudiante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="insertarEstudiante">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Estudiantes
+                         (nombre, apellido, representante_id)
+VALUES        (?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="nombre" DataSourceName="Estudiantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="apellido" DataSourceName="Estudiantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="representante_id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="representante_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="representante_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoApellido" Modifier="Public" Name="nuevoApellido" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="nuevoApellido">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Estudiantes
+SET                apellido = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="apellido" DataSourceName="Estudiantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NuevoNombre" Modifier="Public" Name="NuevoNombre" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="NuevoNombre">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Estudiantes
+SET                nombre = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="nombre" DataSourceName="Estudiantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoTelefono" Modifier="Public" Name="nuevoTelefono" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="nuevoTelefono">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Estudiantes
+SET                telefono = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="telefono" DataSourceName="Estudiantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="telefono" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="obtenerTodosLosEstudiantes" GetMethodModifier="Public" GetMethodName="obtenerTodosLosEstudiantes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="obtenerTodosLosEstudiantes" UserSourceName="obtenerTodosLosEstudiantes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT e.nombre, e.apellido,
+       IIF(ISNULL(g.grado) OR ISNULL(g.seccion), 'Sin asignar', g.grado &amp; ' ' &amp; g.seccion) AS Grado,
+       IIF(ISNULL(r.telefono), 'Sin asignar', r.telefono) AS telefonoRepresentante,
+       IIF(ISNULL(r.nombre) OR ISNULL(r.apellido), 'Sin asignar', r.nombre &amp; ' ' &amp; r.apellido) AS Representante
+FROM (Estudiantes e
+LEFT JOIN Grados g ON e.grado_id = g.Id)
+LEFT JOIN Representantes r ON e.representante_id = r.Id;
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="seleccionarRepresentante" Modifier="Public" Name="seleccionarRepresentante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="seleccionarRepresentante">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        representante_id
+FROM            Estudiantes
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="Id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GradosTableAdapter" GeneratorDataComponentClassName="GradosTableAdapter" Name="Grados" UserDataComponentName="GradosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="Grados" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `Grados` WHERE ((`Id` = ?) AND ((? = 1 AND `grado` IS NULL) OR (`grado` = ?)) AND ((? = 1 AND `seccion` IS NULL) OR (`seccion` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_grado" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_grado" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="grado" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_seccion" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="seccion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_seccion" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="seccion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `Grados` (`grado`, `seccion`) VALUES (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="grado" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="grado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="seccion" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="seccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, grado, seccion FROM Grados</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `Grados` SET `grado` = ?, `seccion` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `grado` IS NULL) OR (`grado` = ?)) AND ((? = 1 AND `seccion` IS NULL) OR (`seccion` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="grado" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="grado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="seccion" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="seccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_grado" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_grado" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="grado" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_seccion" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="seccion" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_seccion" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="seccion" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="grado" DataSetColumn="grado" />
+              <Mapping SourceColumn="seccion" DataSetColumn="seccion" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eliminarGrado" Modifier="Public" Name="eliminarGrado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="eliminarGrado">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM Grados
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="Id" DataSourceName="Grados" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eliminarGrado_id" Modifier="Public" Name="eliminarGrado_id" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="eliminarGrado_id">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Estudiantes
+SET                grado_id = NULL
+WHERE        (grado_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="grado_id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_grado_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eliminarProfesor" Modifier="Public" Name="eliminarProfesor" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="eliminarProfesor">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM Profesor_grado
+WHERE        (grado_seccion_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="grado_seccion_id" DataSourceName="Profesor_grado" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="existeGrado" Modifier="Public" Name="existeGrado" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="existeGrado">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(*) AS Expr1
+FROM            Grados
+WHERE        (grado = ?) AND (seccion = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="grado" DataSourceName="Grados" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="grado" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="seccion" DataSourceName="Grados" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="seccion" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="seccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetEstudiantes" GetMethodModifier="Public" GetMethodName="GetEstudiantes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetEstudiantes" UserSourceName="GetEstudiantes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        e.Id, e.nombre, e.apellido, g.grado, g.seccion, IIF(ISNULL(r.telefono), 'Sin asignar', r.telefono) AS TelefonoRepresentante
+FROM            ((Estudiantes e INNER JOIN
+                         Grados g ON e.grado_id = g.Id) LEFT OUTER JOIN
+                         Representantes r ON e.representante_id = r.Id)
+WHERE        (e.grado_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="grado_id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="grado_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="insertarGrado" Modifier="Public" Name="insertarGrado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="insertarGrado">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Grados
+                         (grado, seccion)
+VALUES        (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="grado" DataSourceName="Grados" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="grado" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="grado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="seccion" DataSourceName="Grados" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="seccion" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="seccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoGrado" Modifier="Public" Name="nuevoGrado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="nuevoGrado">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Grados
+SET                grado = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="grado" DataSourceName="Grados" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="grado" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Grados" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoSeccion" Modifier="Public" Name="nuevoSeccion" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="nuevoSeccion">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Grados
+SET                seccion = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="seccion" DataSourceName="Grados" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="seccion" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="seccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Grados" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="obtenerTodosLosGrados" GetMethodModifier="Public" GetMethodName="obtenerTodosLosGrados" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="obtenerTodosLosGrados" UserSourceName="obtenerTodosLosGrados">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT g.grado, g.seccion, 
+       IIF(ISNULL(p.nombre) OR ISNULL(p.apellido), 'Sin profesor', p.nombre + ' ' + p.apellido) AS profesor
+FROM (Grados g 
+LEFT JOIN Profesor_grado pg ON g.Id = pg.grado_seccion_id)
+LEFT JOIN Profesores p ON pg.profesor_id = p.Id;
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="profesorFiltrado" Modifier="Public" Name="profesorFiltrado" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="profesorFiltrado">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Profesores.nombre &amp; ' ' &amp; Profesores.apellido AS nombreCompleto
+FROM            ((Profesores INNER JOIN
+                         Profesor_grado ON Profesores.Id = Profesor_grado.profesor_id) INNER JOIN
+                         Grados ON Profesor_grado.grado_seccion_id = Grados.Id)
+WHERE        (Grados.grado = ?) AND (Grados.seccion = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="grado" DataSourceName="Grados" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="grado" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="seccion" DataSourceName="Grados" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="seccion" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="seccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Profesor_gradoTableAdapter" GeneratorDataComponentClassName="Profesor_gradoTableAdapter" Name="Profesor_grado" UserDataComponentName="Profesor_gradoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="Profesor_grado" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `Profesor_grado` WHERE ((`Id` = ?) AND ((? = 1 AND `profesor_id` IS NULL) OR (`profesor_id` = ?)) AND ((? = 1 AND `grado_seccion_id` IS NULL) OR (`grado_seccion_id` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_profesor_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="profesor_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_profesor_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="profesor_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `Profesor_grado` (`profesor_id`, `grado_seccion_id`) VALUES (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="profesor_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="profesor_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, profesor_id, grado_seccion_id FROM Profesor_grado</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `Profesor_grado` SET `profesor_id` = ?, `grado_seccion_id` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `profesor_id` IS NULL) OR (`profesor_id` = ?)) AND ((? = 1 AND `grado_seccion_id` IS NULL) OR (`grado_seccion_id` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="profesor_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="profesor_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_profesor_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="profesor_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_profesor_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="profesor_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="profesor_id" DataSetColumn="profesor_id" />
+              <Mapping SourceColumn="grado_seccion_id" DataSetColumn="grado_seccion_id" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eliminarRelacion" Modifier="Public" Name="eliminarRelacion" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="eliminarRelacion">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM Profesor_grado
+WHERE        (profesor_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="profesor_id" DataSourceName="Profesor_grado" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="profesor_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="profesor_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExisteGrado" Modifier="Public" Name="ExisteGrado" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ExisteGrado">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(*) AS Expr1
+FROM            Profesor_grado
+WHERE        (grado_seccion_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="grado_seccion_id" DataSourceName="Profesor_grado" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExisteRelacion" Modifier="Public" Name="ExisteRelacion" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ExisteRelacion">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(*) AS Expr1
+FROM            Profesor_grado
+WHERE        (profesor_id = ?) AND (grado_seccion_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="profesor_id" DataSourceName="Profesor_grado" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="profesor_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="profesor_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="grado_seccion_id" DataSourceName="Profesor_grado" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertarGradoProfesor" Modifier="Public" Name="InsertarGradoProfesor" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InsertarGradoProfesor">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Profesor_grado
+                         (profesor_id, grado_seccion_id)
+VALUES        (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="profesor_id" DataSourceName="Profesor_grado" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="profesor_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="profesor_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="grado_seccion_id" DataSourceName="Profesor_grado" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="grado_seccion_id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="grado_seccion_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProfesoresTableAdapter" GeneratorDataComponentClassName="ProfesoresTableAdapter" Name="Profesores" UserDataComponentName="ProfesoresTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="Profesores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `Profesores` WHERE ((`Id` = ?) AND ((? = 1 AND `nombre` IS NULL) OR (`nombre` = ?)) AND ((? = 1 AND `apellido` IS NULL) OR (`apellido` = ?)) AND ((? = 1 AND `cedula` IS NULL) OR (`cedula` = ?)) AND ((? = 1 AND `telefono` IS NULL) OR (`telefono` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_nombre" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_nombre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_apellido" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_apellido" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_telefono" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_telefono" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `Profesores` (`nombre`, `apellido`, `cedula`, `telefono`) VALUES (?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="telefono" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, nombre, apellido, cedula, telefono FROM Profesores</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `Profesores` SET `nombre` = ?, `apellido` = ?, `cedula` = ?, `telefono` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `nombre` IS NULL) OR (`nombre` = ?)) AND ((? = 1 AND `apellido` IS NULL) OR (`apellido` = ?)) AND ((? = 1 AND `cedula` IS NULL) OR (`cedula` = ?)) AND ((? = 1 AND `telefono` IS NULL) OR (`telefono` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="telefono" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_nombre" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_nombre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_apellido" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_apellido" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_telefono" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_telefono" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
+              <Mapping SourceColumn="cedula" DataSetColumn="cedula" />
+              <Mapping SourceColumn="telefono" DataSetColumn="telefono" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eliminarProfesor" Modifier="Public" Name="eliminarProfesor" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="eliminarProfesor">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM Profesores
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="Id" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="existeProfesor" Modifier="Public" Name="existeProfesor" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="existeProfesor">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(*) AS Expr1
+FROM            Profesores
+WHERE        (cedula = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="cedula" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetProfesores" GetMethodModifier="Public" GetMethodName="GetProfesores" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetProfesores" UserSourceName="GetProfesores">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Profesores.id AS profesor_id, 
+       (Profesores.nombre &amp; ' ' &amp; Profesores.apellido) AS Profesor, 
+       IIf(IsNull(Grados.id), 'Sin asignar', Grados.grado &amp; ' ' &amp; Grados.seccion) AS Grado 
+FROM (Profesores 
+      LEFT JOIN Profesor_grado ON Profesores.id = Profesor_grado.profesor_id) 
+      LEFT JOIN Grados ON Profesor_grado.grado_seccion_id = Grados.id;
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertarProfesor" Modifier="Public" Name="InsertarProfesor" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertarProfesor">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Profesores
+                         (nombre, apellido, cedula, telefono)
+VALUES        (?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="nombre" DataSourceName="Profesores" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="apellido" DataSourceName="Profesores" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="cedula" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="telefono" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="String" Direction="Input" ParameterName="telefono" Precision="0" ProviderType="VarWChar" Scale="0" Size="255" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevaCedula" Modifier="Public" Name="nuevaCedula" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="nuevaCedula">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Profesores
+SET                cedula = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="cedula" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoApellido" Modifier="Public" Name="nuevoApellido" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="nuevoApellido">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Profesores
+SET                apellido = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="apellido" DataSourceName="Profesores" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoNombre" Modifier="Public" Name="nuevoNombre" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="nuevoNombre">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Profesores
+SET                nombre = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="nombre" DataSourceName="Profesores" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoTelefono" Modifier="Public" Name="nuevoTelefono" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="nuevoTelefono">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Profesores
+SET                telefono = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="telefono" DataSourceName="Profesores" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="telefono" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="ObtenerTodolosProfesores" GetMethodModifier="Public" GetMethodName="ObtenerTodolosProfesores" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="ObtenerTodolosProfesores" UserSourceName="ObtenerTodolosProfesores">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Profesores.id AS profesor_id,
+       Profesores.nombre,
+       Profesores.apellido,
+       Profesores.cedula,
+       Profesores.telefono,
+       IIf(Grados.id IS NULL, 'Sin asignar', Grados.grado &amp; ' ' &amp; Grados.seccion) AS Grado
+FROM (Profesores
+LEFT JOIN Profesor_grado ON Profesores.id = Profesor_grado.profesor_id)
+LEFT JOIN Grados ON Profesor_grado.grado_seccion_id = Grados.id;
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="Profesores" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="verificarCedulaConId" GetMethodModifier="Public" GetMethodName="verificarCedulaConId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="verificarCedulaConId" UserSourceName="verificarCedulaConId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        cedula
+FROM            Profesores
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="Id" DataSourceName="Profesores" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RepresentantesTableAdapter" GeneratorDataComponentClassName="RepresentantesTableAdapter" Name="Representantes" UserDataComponentName="RepresentantesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="Representantes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `Representantes` WHERE ((`Id` = ?) AND ((? = 1 AND `nombre` IS NULL) OR (`nombre` = ?)) AND ((? = 1 AND `apellido` IS NULL) OR (`apellido` = ?)) AND ((? = 1 AND `cedula` IS NULL) OR (`cedula` = ?)) AND ((? = 1 AND `telefono` IS NULL) OR (`telefono` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_nombre" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_nombre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_apellido" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_apellido" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_telefono" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_telefono" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `Representantes` (`nombre`, `apellido`, `cedula`, `telefono`) VALUES (?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="telefono" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, nombre, apellido, cedula, telefono
+FROM            Representantes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `Representantes` SET `nombre` = ?, `apellido` = ?, `cedula` = ?, `telefono` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `nombre` IS NULL) OR (`nombre` = ?)) AND ((? = 1 AND `apellido` IS NULL) OR (`apellido` = ?)) AND ((? = 1 AND `cedula` IS NULL) OR (`cedula` = ?)) AND ((? = 1 AND `telefono` IS NULL) OR (`telefono` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="telefono" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_nombre" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_nombre" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_apellido" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_apellido" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_telefono" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_telefono" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
+              <Mapping SourceColumn="cedula" DataSetColumn="cedula" />
+              <Mapping SourceColumn="telefono" DataSetColumn="telefono" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eliminarRepresentante" Modifier="Public" Name="eliminarRepresentante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="eliminarRepresentante">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM Representantes
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="Id" DataSourceName="Representantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="insertarRepresentante" Modifier="Public" Name="insertarRepresentante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="insertarRepresentante">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Representantes
+                         (nombre, apellido, cedula, telefono)
+VALUES        (?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="nombre" DataSourceName="Representantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="apellido" DataSourceName="Representantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="cedula" DataSourceName="Representantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="telefono" DataSourceName="Representantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="telefono" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevaCedulaRepresentante" Modifier="Public" Name="nuevaCedulaRepresentante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="nuevaCedulaRepresentante">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Representantes
+SET                cedula = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="cedula" DataSourceName="Representantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="cedula" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="cedula" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Representantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoApellidoRepresentante" Modifier="Public" Name="nuevoApellidoRepresentante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="nuevoApellidoRepresentante">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Representantes
+SET                apellido = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="apellido" DataSourceName="Representantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="apellido" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="apellido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Representantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoNombreRepresentante" Modifier="Public" Name="nuevoNombreRepresentante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="nuevoNombreRepresentante">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Representantes
+SET                nombre = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="nombre" DataSourceName="Representantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="nombre" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Representantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="nuevoTelefonoRepresentante" Modifier="Public" Name="nuevoTelefonoRepresentante" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="nuevoTelefonoRepresentante">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Representantes
+SET                telefono = ?
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="telefono" DataSourceName="Representantes" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="telefono" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Id" DataSourceName="Representantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="obtenerTodosLosRepresentantes" GetMethodModifier="Public" GetMethodName="obtenerTodosLosRepresentantes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="obtenerTodosLosRepresentantes" UserSourceName="obtenerTodosLosRepresentantes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT r.nombre AS nombre, r.apellido AS apellido, 
+       r.cedula AS cedula, r.telefono AS telefono, 
+       (e.nombre &amp; ' ' &amp; e.apellido) AS hijo, 
+       IIF(ISNULL(g.grado) OR ISNULL(g.seccion), 'Sin asignar', g.grado &amp; ' ' &amp; g.seccion) AS grado
+FROM (Representantes r 
+LEFT JOIN Estudiantes e ON r.Id = e.representante_id) 
+LEFT JOIN Grados g ON e.grado_id = g.Id;
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="Estudiantes" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="representanteId" Modifier="Public" Name="representanteId" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="representanteId">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        representante_id
+FROM            Estudiantes
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="Id" DataSourceName="Estudiantes" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="seleccionarRepresentante" Modifier="Public" Name="seleccionarRepresentante" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="seleccionarRepresentante">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MAX(Id) AS Expr1
+FROM            Representantes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsuariosTableAdapter" GeneratorDataComponentClassName="UsuariosTableAdapter" Name="Usuarios" UserDataComponentName="UsuariosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `Usuarios` WHERE ((`Id` = ?) AND ((? = 1 AND `usuario` IS NULL) OR (`usuario` = ?)) AND ((? = 1 AND `contraseña` IS NULL) OR (`contraseña` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_usuario" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_usuario" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_contraseña" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="contraseña" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_contraseña" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="contraseña" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `Usuarios` (`usuario`, `contraseña`) VALUES (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="usuario" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="contraseña" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="contraseña" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, usuario, contraseña
+FROM            Usuarios</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `Usuarios` SET `usuario` = ?, `contraseña` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `usuario` IS NULL) OR (`usuario` = ?)) AND ((? = 1 AND `contraseña` IS NULL) OR (`contraseña` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="usuario" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="contraseña" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="contraseña" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_usuario" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_usuario" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_contraseña" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="contraseña" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_contraseña" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="contraseña" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="usuario" DataSetColumn="usuario" />
+              <Mapping SourceColumn="contraseña" DataSetColumn="contraseña" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="eliminarUsuario" Modifier="Public" Name="eliminarUsuario" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="eliminarUsuario">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM Usuarios
+WHERE        (Id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="Id" DataSourceName="Usuarios" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="Id" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="existeUsuario" Modifier="Public" Name="existeUsuario" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="existeUsuario">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(*) AS Expr1
+FROM            Usuarios
+WHERE        (usuario = ?) AND (contraseña = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="usuario" DataSourceName="Usuarios" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="usuario" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="contraseña" DataSourceName="Usuarios" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="contraseña" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="contraseña" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="insertarUsuario" Modifier="Public" Name="insertarUsuario" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="insertarUsuario">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO `Usuarios` (`usuario`, `contraseña`) VALUES (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="usuario" DataSourceName="Usuarios" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="usuario" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="contraseña" DataSourceName="Usuarios" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="contraseña" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="contraseña" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="escuela_BDConnectionString (MySettings)" DbObjectName="Usuarios" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="verificarUsuario" GetMethodModifier="Public" GetMethodName="verificarUsuario" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="verificarUsuario" UserSourceName="verificarUsuario">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM Usuarios WHERE usuario = ? AND contraseña = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="usuario" DataSourceName="Usuarios" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="usuario" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="contraseña" DataSourceName="Usuarios" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="contraseña" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="contraseña" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="escuela_BDDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="escuela_BDDataSet" msprop:Generator_UserDSName="escuela_BDDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Estudiantes" msprop:Generator_TableClassName="EstudiantesDataTable" msprop:Generator_TableVarName="tableEstudiantes" msprop:Generator_RowChangedName="EstudiantesRowChanged" msprop:Generator_TablePropName="Estudiantes" msprop:Generator_RowDeletingName="EstudiantesRowDeleting" msprop:Generator_RowChangingName="EstudiantesRowChanging" msprop:Generator_RowEvHandlerName="EstudiantesRowChangeEventHandler" msprop:Generator_RowDeletedName="EstudiantesRowDeleted" msprop:Generator_RowClassName="EstudiantesRow" msprop:Generator_UserTableName="Estudiantes" msprop:Generator_RowEvArgName="EstudiantesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Grado" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGrado" msprop:Generator_ColumnPropNameInRow="Grado" msprop:Generator_ColumnPropNameInTable="GradoColumn" msprop:Generator_UserColumnName="Grado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Seccion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSeccion" msprop:Generator_ColumnPropNameInRow="Seccion" msprop:Generator_ColumnPropNameInTable="SeccionColumn" msprop:Generator_UserColumnName="Seccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreRepresentante" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombreRepresentante" msprop:Generator_ColumnPropNameInRow="NombreRepresentante" msprop:Generator_ColumnPropNameInTable="NombreRepresentanteColumn" msprop:Generator_UserColumnName="NombreRepresentante" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApellidoRepresentante" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnApellidoRepresentante" msprop:Generator_ColumnPropNameInRow="ApellidoRepresentante" msprop:Generator_ColumnPropNameInTable="ApellidoRepresentanteColumn" msprop:Generator_UserColumnName="ApellidoRepresentante" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TelefonoRepresentante" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTelefonoRepresentante" msprop:Generator_ColumnPropNameInRow="TelefonoRepresentante" msprop:Generator_ColumnPropNameInTable="TelefonoRepresentanteColumn" msprop:Generator_UserColumnName="TelefonoRepresentante" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="grado_id" msprop:Generator_ColumnVarNameInTable="columngrado_id" msprop:Generator_ColumnPropNameInRow="grado_id" msprop:Generator_ColumnPropNameInTable="grado_idColumn" msprop:Generator_UserColumnName="grado_id" type="xs:int" minOccurs="0" />
+              <xs:element name="g_Grado" msdata:Caption="g.Grado" msprop:Generator_ColumnVarNameInTable="columng_Grado" msprop:Generator_ColumnPropNameInRow="g_Grado" msprop:Generator_ColumnPropNameInTable="g_GradoColumn" msprop:Generator_UserColumnName="g_Grado" type="xs:int" minOccurs="0" />
+              <xs:element name="g_Seccion" msdata:Caption="g.Seccion" msprop:Generator_ColumnVarNameInTable="columng_Seccion" msprop:Generator_ColumnPropNameInRow="g_Seccion" msprop:Generator_ColumnPropNameInTable="g_SeccionColumn" msprop:Generator_UserColumnName="g_Seccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr2" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_UserColumnName="Expr2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cedula" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_UserColumnName="cedula" type="xs:int" minOccurs="0" />
+              <xs:element name="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_UserColumnName="telefono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr3" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnExpr3" msprop:Generator_ColumnPropNameInRow="Expr3" msprop:Generator_ColumnPropNameInTable="Expr3Column" msprop:Generator_UserColumnName="Expr3" type="xs:int" minOccurs="0" />
+              <xs:element name="representante_id" msprop:Generator_ColumnVarNameInTable="columnrepresentante_id" msprop:Generator_ColumnPropNameInRow="representante_id" msprop:Generator_ColumnPropNameInTable="representante_idColumn" msprop:Generator_UserColumnName="representante_id" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Grados" msprop:Generator_TableClassName="GradosDataTable" msprop:Generator_TableVarName="tableGrados" msprop:Generator_RowChangedName="GradosRowChanged" msprop:Generator_TablePropName="Grados" msprop:Generator_RowDeletingName="GradosRowDeleting" msprop:Generator_RowChangingName="GradosRowChanging" msprop:Generator_RowEvHandlerName="GradosRowChangeEventHandler" msprop:Generator_RowDeletedName="GradosRowDeleted" msprop:Generator_RowClassName="GradosRow" msprop:Generator_UserTableName="Grados" msprop:Generator_RowEvArgName="GradosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="grado" msprop:Generator_ColumnVarNameInTable="columngrado" msprop:Generator_ColumnPropNameInRow="grado" msprop:Generator_ColumnPropNameInTable="gradoColumn" msprop:Generator_UserColumnName="grado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="seccion" msprop:Generator_ColumnVarNameInTable="columnseccion" msprop:Generator_ColumnPropNameInRow="seccion" msprop:Generator_ColumnPropNameInTable="seccionColumn" msprop:Generator_UserColumnName="seccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Profesor_grado" msprop:Generator_TableClassName="Profesor_gradoDataTable" msprop:Generator_TableVarName="tableProfesor_grado" msprop:Generator_RowChangedName="Profesor_gradoRowChanged" msprop:Generator_TablePropName="Profesor_grado" msprop:Generator_RowDeletingName="Profesor_gradoRowDeleting" msprop:Generator_RowChangingName="Profesor_gradoRowChanging" msprop:Generator_RowEvHandlerName="Profesor_gradoRowChangeEventHandler" msprop:Generator_RowDeletedName="Profesor_gradoRowDeleted" msprop:Generator_RowClassName="Profesor_gradoRow" msprop:Generator_UserTableName="Profesor_grado" msprop:Generator_RowEvArgName="Profesor_gradoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="profesor_id" msprop:Generator_ColumnVarNameInTable="columnprofesor_id" msprop:Generator_ColumnPropNameInRow="profesor_id" msprop:Generator_ColumnPropNameInTable="profesor_idColumn" msprop:Generator_UserColumnName="profesor_id" type="xs:int" minOccurs="0" />
+              <xs:element name="grado_seccion_id" msprop:Generator_ColumnVarNameInTable="columngrado_seccion_id" msprop:Generator_ColumnPropNameInRow="grado_seccion_id" msprop:Generator_ColumnPropNameInTable="grado_seccion_idColumn" msprop:Generator_UserColumnName="grado_seccion_id" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Profesores" msprop:Generator_TableClassName="ProfesoresDataTable" msprop:Generator_TableVarName="tableProfesores" msprop:Generator_RowChangedName="ProfesoresRowChanged" msprop:Generator_TablePropName="Profesores" msprop:Generator_RowDeletingName="ProfesoresRowDeleting" msprop:Generator_RowChangingName="ProfesoresRowChanging" msprop:Generator_RowEvHandlerName="ProfesoresRowChangeEventHandler" msprop:Generator_RowDeletedName="ProfesoresRowDeleted" msprop:Generator_RowClassName="ProfesoresRow" msprop:Generator_UserTableName="Profesores" msprop:Generator_RowEvArgName="ProfesoresRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cedula" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_UserColumnName="cedula" type="xs:int" minOccurs="0" />
+              <xs:element name="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_UserColumnName="telefono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Representantes" msprop:Generator_TableClassName="RepresentantesDataTable" msprop:Generator_TableVarName="tableRepresentantes" msprop:Generator_RowChangedName="RepresentantesRowChanged" msprop:Generator_TablePropName="Representantes" msprop:Generator_RowDeletingName="RepresentantesRowDeleting" msprop:Generator_RowChangingName="RepresentantesRowChanging" msprop:Generator_RowEvHandlerName="RepresentantesRowChangeEventHandler" msprop:Generator_RowDeletedName="RepresentantesRowDeleted" msprop:Generator_RowClassName="RepresentantesRow" msprop:Generator_UserTableName="Representantes" msprop:Generator_RowEvArgName="RepresentantesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cedula" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_UserColumnName="cedula" type="xs:int" minOccurs="0" />
+              <xs:element name="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_UserColumnName="telefono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Usuarios" msprop:Generator_TableClassName="UsuariosDataTable" msprop:Generator_TableVarName="tableUsuarios" msprop:Generator_RowChangedName="UsuariosRowChanged" msprop:Generator_TablePropName="Usuarios" msprop:Generator_RowDeletingName="UsuariosRowDeleting" msprop:Generator_RowChangingName="UsuariosRowChanging" msprop:Generator_RowEvHandlerName="UsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuariosRowDeleted" msprop:Generator_RowClassName="UsuariosRow" msprop:Generator_UserTableName="Usuarios" msprop:Generator_RowEvArgName="UsuariosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="contraseña" msprop:Generator_ColumnVarNameInTable="columncontraseña" msprop:Generator_ColumnPropNameInRow="contraseña" msprop:Generator_ColumnPropNameInTable="contraseñaColumn" msprop:Generator_UserColumnName="contraseña" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Estudiantes" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Grados_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Grados" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Profesor_grado_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Profesor_grado" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Profesores_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Profesores" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Representantes_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Representantes" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="Usuarios_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Usuarios" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="GradosEstudiantes" msdata:parent="Grados" msdata:child="Estudiantes" msdata:parentkey="Id" msdata:childkey="grado_id" msprop:Generator_UserChildTable="Estudiantes" msprop:Generator_ChildPropName="GetEstudiantesRows" msprop:Generator_UserRelationName="GradosEstudiantes" msprop:Generator_ParentPropName="GradosRow" msprop:Generator_RelationVarName="relationGradosEstudiantes" msprop:Generator_UserParentTable="Grados" />
+      <msdata:Relationship name="RepresentantesEstudiantes" msdata:parent="Representantes" msdata:child="Estudiantes" msdata:parentkey="Id" msdata:childkey="representante_id" msprop:Generator_UserChildTable="Estudiantes" msprop:Generator_ChildPropName="GetEstudiantesRows" msprop:Generator_UserRelationName="RepresentantesEstudiantes" msprop:Generator_RelationVarName="relationRepresentantesEstudiantes" msprop:Generator_UserParentTable="Representantes" msprop:Generator_ParentPropName="RepresentantesRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

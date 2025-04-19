@@ -1,0 +1,22 @@
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\bin\Release\sistema de Gestion de estudiantes.exe.config
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\bin\Release\sistema de Gestion de estudiantes.pdb
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\bin\Release\sistema de Gestion de estudiantes.xml
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form1.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form10.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form2.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form3.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form4.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form5.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form6.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form7.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form8.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form9.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Resources.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\sistema de Gestion de estudiantes.vbproj.GenerateResource.Cache
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\sistema de Gestion de estudiantes.exe
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\sistema de Gestion de estudiantes.xml
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\sistema de Gestion de estudiantes.pdb
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\sistema de Gestion de estudiantes.vbprojResolveAssemblyReference.cache
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form11.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form12.resources
+C:\Users\josem\Desktop\Nuevo sistema\sistema de Gestion de estudiantes\sistema de Gestion de estudiantes\obj\x86\Release\WindowsApplication1.Form13.resources
